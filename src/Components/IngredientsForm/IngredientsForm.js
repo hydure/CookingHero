@@ -20,7 +20,7 @@ function IngredientsForm() {
             .then(response => {
                 recipes = response.data;
                 console.log(recipes);
-                ReactDOM.render
+                
             })
             .catch(function (error){
                 console.error(error);
