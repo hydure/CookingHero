@@ -35,7 +35,7 @@ function IngredientsForm() {
                 alignSelf: "center"
             }}>
             <Form inline className="searchForm" onSubmit={findRecipes}>
-                <FormControl type="text" placeholder="Type Ingredients" className="mr-sm-2" />
+                <FormControl required type="text" placeholder="Type Ingredients" className="mr-sm-2" />
                 <Button variant="primary" type="submit">Search</Button>
             </Form>
             <Modal show={show} onHide={handleClose}>

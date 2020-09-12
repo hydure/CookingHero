@@ -75,6 +75,7 @@ function AddRecipeModal() {
                         <Form.Group>
                             <Form.Label>Recipe Name</Form.Label>
                             <Form.Control
+                                required
                                 placeholder="Enter Recipe Name"
                                 type="text"
                                 onChange={onChangeRecipeName.bind(this)}
@@ -86,6 +87,7 @@ function AddRecipeModal() {
                         <Form.Group>
                             <Form.Label>Recipe Ingredients</Form.Label>
                             <Form.Control
+                                required
                                 placeholder="Enter Ingredients"
                                 type="text"
                                 onChange={onChangeIngredients.bind(this)}
