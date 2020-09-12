@@ -19,17 +19,12 @@ function App() {
             Too tired to buy groceries? Have a dinner date in your dorm soon?<br/>
             Have no fear, we are here to help you! 
           </p>
-          <IngredientsForm className="searchForm"/>
+          <IngredientsForm/>
         </div>
 
         <div>
           <p className="paragraph">Order add a new recipe here!</p>
-          <AddRecipeModal className="searchForm"/>
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
+          <AddRecipeModal/>
         </div>
 
         <p></p>

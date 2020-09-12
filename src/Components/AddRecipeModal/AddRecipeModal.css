@@ -1,3 +1,5 @@
-.searchForm{
+.recipeModal{
+    display: flex;
     justify-content: center;
+    align-items: center;
 }

@@ -8,7 +8,7 @@ function IngredientsForm() {
     return(
         <Form inline className="searchForm">
             <FormControl type="text" placeholder="Type Ingredients" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="primary">Search</Button>
         </Form>
     );
 }

@@ -9,8 +9,8 @@ function AddRecipeModal() {
     const handleShow = () => setShow(true);
 
     return (
-        <>
-            <Button variant="primary" onClick={handleShow}>
+        <div className="recipeModal">
+            <Button variant="primary" onClick={handleShow} className="modalButton">
                 Add Recipe
             </Button>
 
@@ -25,7 +25,7 @@ function AddRecipeModal() {
                     <Button variant="primary">Add Recipe</Button>
                 </Modal.Footer>
             </Modal>
-        </>
+        </div>
     );
 }
 
