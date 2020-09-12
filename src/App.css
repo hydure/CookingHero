@@ -1,19 +1,27 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-.App-header {
+.App-body {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* Can use "center" to center in middle of container */
+  justify-content: space-around; 
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.gimmeSpace {
+  position: relative;
+  top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.paragraph{
+  font-size: 20px;
+  text-align: center;
 }
