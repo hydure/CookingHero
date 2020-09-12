@@ -112,9 +112,6 @@ function AddRecipeModal() {
                         </Form.Group>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                    
-                </Modal.Footer>
             </Modal>
         </div>
     );
