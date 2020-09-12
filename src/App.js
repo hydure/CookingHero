@@ -25,6 +25,11 @@ function App() {
         <div>
           <p className="paragraph">Order add a new recipe here!</p>
           <AddRecipeModal className="searchForm"/>
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
         </div>
 
         <p></p>
