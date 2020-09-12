@@ -9,7 +9,12 @@ function AddRecipeModal() {
     const handleShow = () => setShow(true);
 
     return (
-        <div className="recipeModal">
+        <div className="recipeModal" 
+        style = {{
+            display: "flex",
+            justifyContent: "center",
+            alignSelf: "center"
+          }}>
             <Button variant="primary" onClick={handleShow} className="modalButton">
                 Add Recipe
             </Button>
