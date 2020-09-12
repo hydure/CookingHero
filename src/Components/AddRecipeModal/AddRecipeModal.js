@@ -32,6 +32,7 @@ function AddRecipeModal() {
         axios.post("http://localhost:4000/recipes/add", newRecipe)
             .then(res => console.log(res.data));
 
+        handleClose();
         recipeName = "";
         ingredients = ""
         optIngredients = "";
