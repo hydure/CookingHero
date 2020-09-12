@@ -4,7 +4,6 @@ import IngredientsForm from './Components/IngredientsForm/IngredientsForm';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 import AddRecipeModal from './Components/AddRecipeModal/AddRecipeModal';
-import axios from 'axios';
 
 function App() {
   return (
@@ -23,7 +22,7 @@ function App() {
         </div>
 
         <div>
-          <p className="paragraph">Order add a new recipe here!</p>
+          <p className="paragraph">Or add a new recipe here!</p>
           <AddRecipeModal/>
         </div>
 
