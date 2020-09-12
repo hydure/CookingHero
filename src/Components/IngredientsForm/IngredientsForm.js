@@ -12,6 +12,12 @@ function IngredientsForm() {
     const handleShow = () => setShow(true);
     var recipes;
 
+    var ingredients = "";
+
+    const onChangeIngredients = function(event){
+        ingredients = event.target.value;
+    }
+
     const findRecipes = function(event){
         event.preventDefault();
         handleShow();
