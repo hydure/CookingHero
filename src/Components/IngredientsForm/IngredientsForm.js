@@ -19,7 +19,28 @@ function IngredientsForm() {
     }
 
     const filterRecipes = function(recipes, ingredients){
-        var ingredients = ingredients.split(" ");
+        // Get and clean the user-input ingredients.
+        ingredients = ingredients.trim();
+        var ingredientsArray = ingredients.split(",");
+        ingredientsArray.forEach( function (ingredient, index){
+            ingredient = ingredient.trim();
+            console.log(ingredient);
+        });
+
+        // Retrieve and clean up recipes - prepping ingredients for analysis.
+        var listOfIngredientsByRecipe = []
+        var ingredientsArray = [];
+        for (var i = 0; i < recipes.length; i++){
+            ingredientsArray = recipes[i].Recipe_Ingredients
+            ingredientsArray.forEach( function (ingredient, index){
+                ingredient = ingredient.trim();
+                console.log(ingredient);
+            });
+            listOfIngredientsByRecipe.push([recipes[i].Recipe_Name,ingredientsArray]);
+        }
+
+        // Only return recipes with at least one main ingredient that the user entered.
+
         return recipes;
     }
 
@@ -38,10 +59,10 @@ function IngredientsForm() {
                     var node = document.createElement("div");
                     var recipeData = '<p>Recipe: ' + recipes[i].Recipe_Name + '<br/>';
                     recipeData    += 'Ingredients: ' + recipes[i].Recipe_Ingredients + '<br/>';
-                    if (recipes[i].Optional_Ingredients != ""){
+                    if (recipes[i].Optional_Ingredients !== ""){
                         recipeData    += 'Opt Ingredients: ' + recipes[i].Optional_Ingredients + '<br/>';
                     }
-                    if (recipes[i].Website_Link != ""){
+                    if (recipes[i].Website_Link !== ""){
                         recipeData    += 'Website: ' + recipes[i].Website_Link;
                     }
                     recipeData    +='</p>';
