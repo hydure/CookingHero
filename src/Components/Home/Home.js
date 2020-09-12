@@ -22,7 +22,7 @@ function Home() {
           </div>
 
           <div>
-            <p className="paragraph">Order add a new recipe here!</p>
+            <p className="paragraph">Or add a new recipe here!</p>
             <AddRecipeModal/>
           </div>
 
