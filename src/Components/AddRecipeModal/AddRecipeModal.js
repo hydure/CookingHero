@@ -20,6 +20,27 @@ function AddRecipeModal() {
                 </Modal.Header>
                 <Modal.Body>
                     <p>Add the recipe you want to save.</p>
+                    <Form>
+                        <Form.Group>
+                            <Form.Label>Recipe Name</Form.Label>
+                            <Form.Control placeholder="Enter Recipe Name" />
+                            <Form.Text className="text-muted">
+                                We bet it's tasty!
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Recipe Ingredients</Form.Label>
+                            <Form.Control placeholder="Enter Ingredients" />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Optional Ingredients</Form.Label>
+                            <Form.Control placeholder="Enter Ingredients" />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Website Link</Form.Label>
+                            <Form.Control placeholder="Optional" />
+                        </Form.Group>
+                    </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary">Add Recipe</Button>
