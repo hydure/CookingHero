@@ -20,6 +20,7 @@ function IngredientsForm() {
             .then(response => {
                 recipes = response.data;
                 console.log(recipes);
+                
             })
             .catch(function (error){
                 console.error(error);
