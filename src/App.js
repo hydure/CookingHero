@@ -3,6 +3,8 @@ import './App.css';
 import IngredientsForm from './Components/IngredientsForm/IngredientsForm';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
+import AddRecipeModal from './Components/AddRecipeModal/AddRecipeModal';
+import axios from 'axios';
 
 function App() {
   return (
@@ -20,7 +22,10 @@ function App() {
           <IngredientsForm className="searchForm"/>
         </div>
 
-        <p className="paragraph">Insert gif of it working here.</p>
+        <div>
+          <p className="paragraph">Order add a new recipe here!</p>
+          <AddRecipeModal className="searchForm"/>
+        </div>
 
         <p></p>
         <p></p>

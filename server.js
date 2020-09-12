@@ -25,7 +25,6 @@ mongoose.connect('mongodb://' + process.env.DB_USER + ':' + process.env.DB_PASSW
 
 // Handling API Routes.
 const routes = express.Router();
-app.use('/recipes', routes);
 
 // Fetch all the saved recipes.
 routes.route('/').get(function(req, res) {
@@ -49,6 +48,8 @@ routes.route('/add').post(function(req, res) {
             res.status(400).send("Adding a new recipe failed.");
         });
 });
+
+app.use('/recipes', routes);
 
 // Listening for incoming connections on specified port.
 app.listen(PORT, function() {

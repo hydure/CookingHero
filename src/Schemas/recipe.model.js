@@ -10,5 +10,8 @@ let Recipe = new Schema({
     Optional_Ingredients: {
         type: String
     },
+    Website_Link:{
+        type: String
+    }
 });
 module.exports = mongoose.model('Recipe', Recipe);
