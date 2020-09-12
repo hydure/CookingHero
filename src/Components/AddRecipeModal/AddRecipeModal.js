@@ -46,6 +46,12 @@ function AddRecipeModal() {
                     <Button variant="primary">Add Recipe</Button>
                 </Modal.Footer>
             </Modal>
+
+            style = {{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+            }}
         </div>
     );
 }
