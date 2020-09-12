@@ -89,7 +89,7 @@ function AddRecipeModal() {
                             <Form.Label>Recipe Ingredients</Form.Label>
                             <Form.Control
                                 required
-                                placeholder="Enter Ingredients"
+                                placeholder="Enter Ingredients in the format 'apples, cheese, ...'"
                                 type="text"
                                 onChange={onChangeIngredients.bind(this)}
                             />
@@ -97,7 +97,7 @@ function AddRecipeModal() {
                         <Form.Group>
                             <Form.Label>Optional Ingredients</Form.Label>
                             <Form.Control
-                                placeholder="Enter Ingredients"
+                                placeholder="Enter Ingredients in the format 'apples, cheese, ...'"
                                 type="text"
                                 onChange={onChangeOptIngredients.bind(this)}
                             />
