@@ -21,6 +21,20 @@ function IngredientsForm() {
                 recipes = response.data;
                 console.log(recipes);
                 
+                for (var i = 0; i < recipes.length; i++){
+                    var recipeData = '<p>Recipe: ' + recipes[i].Recipe_Name + '<br/>';
+                    recipeData    += 'Ingredients: ' + recipes[i].Recipe_Ingredients + '<br/>';
+                    if (recipes[i].Optional_Ingredients != null){
+                        recipeData    += 'Opt Ingredients: ' + recipes[i].Optional_Ingredients + '<br/>';
+                    }
+                    if (recipes[i].Website_Link != null){
+                        recipeData    += 'Website: ' + recipes[i].Website_Link;
+                    }
+                    recipeData    +='</p>';
+                    var recipeElem = document.getElementById("recipe" + (i+1).toString());
+                    recipeElem.innerHTML = recipeData;
+                }
+                
             })
             .catch(function (error){
                 console.error(error);
@@ -44,7 +58,9 @@ function IngredientsForm() {
                     <Modal.Title>Here are some recipes we found...</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-
+                    <div id="recipe1"></div>
+                    <div id="recipe2"></div>
+                    <div id="recipe3"></div>
                 </Modal.Body>
             </Modal>
         </div>

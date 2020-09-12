@@ -4,7 +4,6 @@ import Navbar from "../Navbar/Navbar"
 import Footer from "../Footer/Footer"
 import IngredientsForm from "../IngredientsForm/IngredientsForm"
 import AddRecipeModal from "../AddRecipeModal/AddRecipeModal"
-import axios from 'axios';
 
 function Home() {
   return (
