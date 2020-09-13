@@ -20,28 +20,39 @@ function IngredientsForm() {
 
     const filterRecipes = function(recipes, ingredients){
         // Get and clean the user-input ingredients.
-        ingredients = ingredients.trim();
-        var ingredientsArray = ingredients.split(",");
-        ingredientsArray.forEach( function (ingredient, index){
+        var requestedIngredientsArray = ingredients.trim().split(/[\s,]+/);
+        requestedIngredientsArray.forEach( function (ingredient, index){
             ingredient = ingredient.trim();
-            console.log(ingredient);
         });
 
         // Retrieve and clean up recipes - prepping ingredients for analysis.
-        var listOfIngredientsByRecipe = []
-        var ingredientsArray = [];
+        var listOfIngredientsForEachRecipe = []
+        var recipeIngredients = [];
         for (var i = 0; i < recipes.length; i++){
-            ingredientsArray = recipes[i].Recipe_Ingredients
-            ingredientsArray.forEach( function (ingredient, index){
+            recipeIngredients = recipes[i].Recipe_Ingredients.trim().split(",");
+            recipeIngredients.forEach( function (ingredient, index){
                 ingredient = ingredient.trim();
-                console.log(ingredient);
             });
-            listOfIngredientsByRecipe.push([recipes[i].Recipe_Name,ingredientsArray]);
+            listOfIngredientsForEachRecipe.push([recipes[i].Recipe_Name,recipeIngredients]);
         }
-
+        //console.log(listOfIngredientsForEachRecipe);
+        //console.log(requestedIngredientsArray);
+        
         // Only return recipes with at least one main ingredient that the user entered.
+        var recipesToReturn = []
+        listOfIngredientsForEachRecipe.forEach( function (listOfIngredients, index){
+            for (var i = 0; i < requestedIngredientsArray.length; i++){
+                console.log(listOfIngredients[1]);
+                console.log(requestedIngredientsArray[i]);
+                console.log(listOfIngredients[1].indexOf(requestedIngredientsArray[i]) !== -1);
+                if (listOfIngredients[1].indexOf(requestedIngredientsArray[i]) !== -1){
+                    recipesToReturn.push(listOfIngredients)
+                    break;
+                }
+            }
+        });
 
-        return recipes;
+        return recipesToReturn;
     }
 
     const findRecipes = function(event){
