@@ -40,8 +40,8 @@ function IngredientsForm() {
             cleanedRecipeIngredients = [];
         }
 
-        console.log(listOfIngredientsForEachRecipe);
-        console.log(cleanedRequestedIngredientsArray);
+        //console.log(listOfIngredientsForEachRecipe);
+        //console.log(cleanedRequestedIngredientsArray);
 
         // Only return recipes with at least one main ingredient that the user entered.
         var recipesToReturn = []
@@ -53,7 +53,7 @@ function IngredientsForm() {
                 }
             }
         });
-        console.log(recipesToReturn)
+        //console.log(recipesToReturn)
         return recipesToReturn;
     }
 
@@ -64,8 +64,8 @@ function IngredientsForm() {
         axios.get('http://localhost:4000/recipes/')
             .then(response => {
                 recipes = response.data;
-                console.log(recipes);
-                console.log("Ingredients Chosen:" + ingredients);
+                //console.log(recipes);
+                //console.log("Ingredients Chosen:" + ingredients);
                 var filteredRecipes = []
                 filteredRecipes = filterRecipes(recipes, ingredients);
 
