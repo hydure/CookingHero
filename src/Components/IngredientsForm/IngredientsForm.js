@@ -21,37 +21,39 @@ function IngredientsForm() {
     const filterRecipes = function(recipes, ingredients){
         // Get and clean the user-input ingredients.
         var requestedIngredientsArray = ingredients.trim().split(/[\s,]+/);
+        var cleanedRequestedIngredientsArray = [];
         requestedIngredientsArray.forEach( function (ingredient, index){
-            ingredient = ingredient.trim();
+            cleanedRequestedIngredientsArray.push(ingredient.trim().toLowerCase());
         });
 
         // Retrieve and clean up recipes - prepping ingredients for analysis.
         var listOfIngredientsForEachRecipe = []
         var recipeIngredients = [];
+        var cleanedRecipeIngredients = []
         for (var i = 0; i < recipes.length; i++){
             recipeIngredients = recipes[i].Recipe_Ingredients.trim().split(",");
             recipeIngredients.forEach( function (ingredient, index){
-                ingredient = ingredient.trim();
+                cleanedRecipeIngredients.push(ingredient.trim().toLowerCase());
             });
-            listOfIngredientsForEachRecipe.push([recipes[i].Recipe_Name,recipeIngredients]);
+
+            listOfIngredientsForEachRecipe.push([recipes[i].Recipe_Name,cleanedRecipeIngredients]);
+            cleanedRecipeIngredients = [];
         }
-        //console.log(listOfIngredientsForEachRecipe);
-        //console.log(requestedIngredientsArray);
-        
+
+        console.log(listOfIngredientsForEachRecipe);
+        console.log(cleanedRequestedIngredientsArray);
+
         // Only return recipes with at least one main ingredient that the user entered.
         var recipesToReturn = []
         listOfIngredientsForEachRecipe.forEach( function (listOfIngredients, index){
-            for (var i = 0; i < requestedIngredientsArray.length; i++){
-                console.log(listOfIngredients[1]);
-                console.log(requestedIngredientsArray[i]);
-                console.log(listOfIngredients[1].indexOf(requestedIngredientsArray[i]) !== -1);
-                if (listOfIngredients[1].indexOf(requestedIngredientsArray[i]) !== -1){
-                    recipesToReturn.push(listOfIngredients)
+            for (var i = 0; i < cleanedRequestedIngredientsArray.length; i++){
+                if (listOfIngredients[1].indexOf(cleanedRequestedIngredientsArray[i]) > -1){
+                    recipesToReturn.push(recipes[index]);
                     break;
                 }
             }
         });
-
+        console.log(recipesToReturn)
         return recipesToReturn;
     }
 
@@ -64,17 +66,18 @@ function IngredientsForm() {
                 recipes = response.data;
                 console.log(recipes);
                 console.log("Ingredients Chosen:" + ingredients);
-                recipes = filterRecipes(recipes, ingredients);
-                
-                for (var i = 0; i < recipes.length; i++){
+                var filteredRecipes = []
+                filteredRecipes = filterRecipes(recipes, ingredients);
+
+                for (var i = 0; i < filteredRecipes.length; i++){
                     var node = document.createElement("div");
-                    var recipeData = '<p>Recipe: ' + recipes[i].Recipe_Name + '<br/>';
-                    recipeData    += 'Ingredients: ' + recipes[i].Recipe_Ingredients + '<br/>';
-                    if (recipes[i].Optional_Ingredients !== ""){
-                        recipeData    += 'Opt Ingredients: ' + recipes[i].Optional_Ingredients + '<br/>';
+                    var recipeData = '<p>Recipe: ' + filteredRecipes[i].Recipe_Name + '<br/>';
+                    recipeData    += 'Ingredients: ' + filteredRecipes[i].Recipe_Ingredients + '<br/>';
+                    if (filteredRecipes[i].Optional_Ingredients !== ""){
+                        recipeData    += 'Opt Ingredients: ' + filteredRecipes[i].Optional_Ingredients + '<br/>';
                     }
-                    if (recipes[i].Website_Link !== ""){
-                        recipeData    += 'Website: ' + recipes[i].Website_Link;
+                    if (filteredRecipes[i].Website_Link !== ""){
+                        recipeData    += 'Website: ' + filteredRecipes[i].Website_Link;
                     }
                     recipeData    +='</p>';
                     node.innerHTML = recipeData
