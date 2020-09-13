@@ -45,6 +45,7 @@ function AddRecipeModal() {
 
     const onChangeIngredients = function(event){
         ingredients = event.target.value;
+        ingredients = ingredients.trim();
     }
 
     const onChangeOptIngredients = function(event){

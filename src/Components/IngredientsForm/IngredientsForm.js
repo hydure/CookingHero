@@ -19,8 +19,40 @@ function IngredientsForm() {
     }
 
     const filterRecipes = function(recipes, ingredients){
-        var ingredients = ingredients.split(" ");
-        return recipes;
+        // Get and clean the user-input ingredients.
+        var requestedIngredientsArray = ingredients.trim().split(/[\s,]+/);
+        requestedIngredientsArray.forEach( function (ingredient, index){
+            ingredient = ingredient.trim();
+        });
+
+        // Retrieve and clean up recipes - prepping ingredients for analysis.
+        var listOfIngredientsForEachRecipe = []
+        var recipeIngredients = [];
+        for (var i = 0; i < recipes.length; i++){
+            recipeIngredients = recipes[i].Recipe_Ingredients.trim().split(",");
+            recipeIngredients.forEach( function (ingredient, index){
+                ingredient = ingredient.trim();
+            });
+            listOfIngredientsForEachRecipe.push([recipes[i].Recipe_Name,recipeIngredients]);
+        }
+        //console.log(listOfIngredientsForEachRecipe);
+        //console.log(requestedIngredientsArray);
+        
+        // Only return recipes with at least one main ingredient that the user entered.
+        var recipesToReturn = []
+        listOfIngredientsForEachRecipe.forEach( function (listOfIngredients, index){
+            for (var i = 0; i < requestedIngredientsArray.length; i++){
+                console.log(listOfIngredients[1]);
+                console.log(requestedIngredientsArray[i]);
+                console.log(listOfIngredients[1].indexOf(requestedIngredientsArray[i]) !== -1);
+                if (listOfIngredients[1].indexOf(requestedIngredientsArray[i]) !== -1){
+                    recipesToReturn.push(listOfIngredients)
+                    break;
+                }
+            }
+        });
+
+        return recipesToReturn;
     }
 
     const findRecipes = function(event){
@@ -38,10 +70,10 @@ function IngredientsForm() {
                     var node = document.createElement("div");
                     var recipeData = '<p>Recipe: ' + recipes[i].Recipe_Name + '<br/>';
                     recipeData    += 'Ingredients: ' + recipes[i].Recipe_Ingredients + '<br/>';
-                    if (recipes[i].Optional_Ingredients != ""){
+                    if (recipes[i].Optional_Ingredients !== ""){
                         recipeData    += 'Opt Ingredients: ' + recipes[i].Optional_Ingredients + '<br/>';
                     }
-                    if (recipes[i].Website_Link != ""){
+                    if (recipes[i].Website_Link !== ""){
                         recipeData    += 'Website: ' + recipes[i].Website_Link;
                     }
                     recipeData    +='</p>';
