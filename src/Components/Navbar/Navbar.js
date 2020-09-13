@@ -24,7 +24,6 @@ function NavbarFunction() {
     </Navbar>
     );
 }
-//Add the following after the home href
-//<Nav.Link href="\about">About Us</Nav.Link>
+
 
 export default NavbarFunction;
