@@ -1,5 +1,8 @@
 runtime: nodejs10
 
+manual_scaling: 
+  instances: 3
+
 handlers:
   - url: /
     static_files: build/index.html

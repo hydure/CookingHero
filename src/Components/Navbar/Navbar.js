@@ -19,11 +19,12 @@ function NavbarFunction() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="\">Home</Nav.Link>
-          <Nav.Link href="\about">About Us</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
     );
 }
+//Add the following after the home href
+//<Nav.Link href="\about">About Us</Nav.Link>
 
 export default NavbarFunction;
